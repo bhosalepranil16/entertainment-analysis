@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" >
+    <div class="row" >
+        <h1 class="text-center my-3" >{{ movie_data.title }}</h1>
+        <div class="col-md-4">
+        <img src="{{ 'https://image.tmdb.org/t/p/original'|add:movie_data.poster_path }}" class="img-thumbnail" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="m-2">
+                        <h3>Overview</h3>
+                        <p>{{ movie_data.overview }}</p>
+                        <hr />
+                    </div>
+                    <div class="m-2">
+                        <h3>Tagline</h3>
+                        <p>{{ movie_data.tagline }}</p>
+                        <hr />
+                    </div>
+                    <div class="m-2">
+                        <h3>Budget</h3>
+                        <p>USD {{ movie_data.budget }}/-</p>
+                        <hr />
+                    </div>
+                     <div class="m-2">
+                        <h3>Homepage</h3>
+                        <a href="{{ movie_data.homepage }}" target="_blank" class="link-primary" >{{ movie_data.title }}</a>
+                        <hr />
+                    </div>
+                    <div class="m-2">
+                        <h3>IMDB Link</h3>
+                        <a href="https://www.imdb.com/title/{{ movie_data.imdb_id }}" target="_blank" class="link-primary" >{{ movie_data.title }}</a>
+                        <hr />
+                    </div>
+                    <div class="m-2">
+                        <h3>Release Date</h3>
+                        <p>{{ movie_data.release_date }}</p>
+                        <hr />
+                    </div>
+                    <div class="m-2">
+                        <h3>Popularity</h3>
+                        <p>{{ movie_data.popularity }} %</p>
+                        <hr />
+                    </div>
+                    <div class="m-2">
+                        <h3>Genre</h3>
+                        <ul class="list-group list-group-flush">
+                            {% for g in movie_data.genres  %}
+                                <li class="list-group-item">{{ g.name }}</li>    
+                            {% endfor %}
+                        </ul>
+                        <hr />
+                    </div>
+                </div>  
+            <div>
+    </div>
+    <div>
+        <h1 class="text-center my-3" >Similar Movies</h1>
+        <div class="row align-items-start justify-content-between py-4">
+                {% for movie_data in movies_data  %}
+                    {% include 'movies_section/includes/movie-card.html' %}
+                {% endfor %}
+            </div>
+        <div>
+    </div>
+{% endblock content %}
+
+

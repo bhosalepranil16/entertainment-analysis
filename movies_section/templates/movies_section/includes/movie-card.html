@@ -1,0 +1,11 @@
+
+<div class="col-md-4">
+                    <div class="card my-2" style="width: 18rem;">
+                        <img src="{{ 'https://image.tmdb.org/t/p/original'|add:movie_data.poster_path }}" class="card-img-top" alt="{{movie_data.title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ movie_data.title }}</h5>
+                            <p class="card-text">Release Date: {{ movie_data.release_date }}</p>
+                            <a href="{% url 'movie-detail' movie_data.id %}" class="btn btn-primary" >More Details</a>
+                        </div>
+                    </div>
+                </div>

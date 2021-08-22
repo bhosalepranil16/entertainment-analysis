@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+    <div class="container">
+        <form class="border border-primary" method='POST' action="{% url 'movies-section' %}">
+            {% csrf_token %}
+            <div class="form-group w-50 m-3 p-3 mx-auto text-center">
+                <label for="movie-name" class="form-label">Movie</label>
+                <input type="text" class="form-control" id="movie-name" name='movie' />
+                <div id="movie-help" class="form-text">Enter Movie...</div>
+            </div>
+            <div class="p-3 pt-0 max-auto text-center">
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+            </div>
+        </form>
+
+        <div class="row align-items-start justify-content-around py-4">
+            {% for movie_data in movies_data  %}
+                {% include 'movies_section/includes/movie-card.html' %}
+            {% endfor %}
+        </div>
+
+
+    </div
+            
+{% endblock content %}
