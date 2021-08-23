@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" >
+    <div class="row" >
+        <h1 class="text-center my-3" >{{ book_data.title }}</h1>
+        <div class="col-md-4">
+        <img src="{{ book_data.image_url_l }}" class="img-thumbnail" alt="{{ book_data.title }}">
+                </div>
+                <div class="col-md-8">
+                    <div class="m-2">
+                        <h3>Author</h3>
+                        <p>{{ book_data.author }}</p>
+                        <hr />
+                    </div>
+                    <div class="m-2">
+                        <h3>Year Of Publication</h3>
+                        <p>{{ book_data.year_of_publication }}</p>
+                        <hr />
+                    </div>
+                    <div class="m-2">
+                        <h3>Publisher</h3>
+                        <p>{{ book_data.publisher }}</p>
+                        <hr />
+                    </div>
+                </div>  
+            <div>
+    </div>
+    {% comment %} <div>
+        <h1 class="text-center my-3" >Similar Movies</h1>
+        <div class="row align-items-start justify-content-between py-4">
+                {% for movie_data in movies_data  %}
+                    {% include 'movies_section/includes/movie-card.html' %}
+                {% endfor %}
+            </div>
+        <div>
+    </div> {% endcomment %}
+{% endblock content %}
+
+

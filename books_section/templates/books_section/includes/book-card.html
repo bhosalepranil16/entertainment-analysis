@@ -1,0 +1,10 @@
+<div class="col-md-4">
+  <div class="card my-2" style="width: 18rem">
+    <img src="{{book_data.image_url_m}}" class="card-img-top" alt="{{ book_data.title }}" />
+    <div class="card-body">
+      <h5 class="card-title">{{ book_data.title }}</h5>
+      <p class="card-text">{{ book_data.author }}</p>
+      <a href="{% url 'book-detail' book_data.id %}" class="btn btn-primary">More Details</a>
+    </div>
+  </div>
+</div>

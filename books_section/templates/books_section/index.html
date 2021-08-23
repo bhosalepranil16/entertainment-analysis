@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <form class="border border-primary" method="POST" action="{% url 'books-section' %}" >
+            {% csrf_token %}
+            <div class="form-group w-50 m-3 p-3 mx-auto text-center">
+                <label for="book-name" class="form-label">Book</label>
+                <input type="text" class="form-control" id="book-name" name='book' />
+                <div id="book-help" class="form-text">Enter Book...</div>
+            </div>
+            <div class="p-3 pt-0 max-auto text-center">
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+            </div>
+        </form>
+
+        <div class="row align-items-start justify-content-around py-4">
+            {% for book_data in books_data  %}
+                {% include 'books_section/includes/book-card.html' %}
+            {% endfor %}
+        </div>
+
+
+    </div
+            
+{% endblock content %}
